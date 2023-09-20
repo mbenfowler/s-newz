@@ -1,5 +1,9 @@
+import './Nav.scss'
+
 export const Nav = () => {
     return (
-        <nav></nav>
+        <nav>
+            <h1>S-NEWZ</h1>
+        </nav>
     )
 }
