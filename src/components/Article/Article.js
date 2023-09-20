@@ -1,7 +1,6 @@
 import './Article.scss'
 
 export const Article = ({article}) => {
-    console.log(article)
     const image = article.urlToImage ? article.urlToImage : `${process.env.PUBLIC_URL}/images/no-image.png`
 
     if (article.title !== '[Removed]') {
