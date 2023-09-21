@@ -9,14 +9,12 @@ export const Main = ({ query, setSelectedArticle }) => {
     const [articlesData, setArticlesData] = useState()
 
     useEffect(() => {
-        setArticlesData(mockArticleData.articles)
-        // fetch real data when ready
-    }, [])
-
-    useEffect(() => {
         if (query) {
             setArticlesData(mockQueryData.articles)
+        } else {
+            setArticlesData(mockArticleData.articles)
         }
+        // fetch real data when ready
     }, [query])
 
     const articles = articlesData?.map(article => <Card article={article} setSelectedArticle={setSelectedArticle} key={nanoid()} />)
