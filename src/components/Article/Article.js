@@ -6,11 +6,11 @@ export const Article = ({ selectedArticle }) => {
 
         if (selectedArticle.title !== '[Removed]') {
             return (
-                <article className=''>
+                <article className='article'>
                     <img src={image}></img>
                     <h2>{selectedArticle.title}</h2>
-                    <p>{selectedArticle.publishedAt} - {selectedArticle.source.name}</p>
-                    <p>{selectedArticle.content}</p>
+                    <p className='article-date-source'>{selectedArticle.publishedAt} - {selectedArticle.source.name}</p>
+                    <p className='article-content'>{selectedArticle.content}</p>
                 </article>
             )
         }
