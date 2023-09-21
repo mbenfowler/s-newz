@@ -8,12 +8,13 @@ import './App.css'
 
 const App = () => {
   const [selectedArticle, setSelectedArticle] = useState()
+  const [query, setQuery] = useState()
 
   return (
     <>
-      <Nav />
+      <Nav setQuery={setQuery}/>
       <Routes>
-        <Route path='/' element={<Main setSelectedArticle={setSelectedArticle}/>} />
+        <Route path='/' element={<Main query={query} setSelectedArticle={setSelectedArticle}/>} />
         <Route path='/articles/:id' element={<Article selectedArticle={selectedArticle}/>} />
         <Route path='*' element={<Error />} />
       </Routes>
