@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import { nanoid } from 'nanoid'
 import { Card } from '../Card/Card'
-import { mockArticleData } from './mockArticleData'
-import { mockQueryData } from './mockQueryData'
+// import { mockArticleData } from './mockArticleData'
+// import { mockQueryData } from './mockQueryData'
 import './Main.scss'
 
 export const Main = ({ query, setSelectedArticle }) => {
@@ -10,11 +10,16 @@ export const Main = ({ query, setSelectedArticle }) => {
 
     useEffect(() => {
         if (query) {
-            setArticlesData(mockQueryData.articles)
+            fetch(`https://newsapi.org/v2/everything?q=${query}&apiKey=88fd0bac494a4655823e6e2c7981e7e0`)
+                .then(res => res.json())
+                .then(data => setArticlesData(data.articles))
+                .catch(err => console.error(err))
         } else {
-            setArticlesData(mockArticleData.articles)
+            fetch('https://newsapi.org/v2/top-headlines?country=us&apiKey=88fd0bac494a4655823e6e2c7981e7e0')
+                .then(res => res.json())
+                .then(data => setArticlesData(data.articles))
+                .catch(err => console.error(err))
         }
-        // fetch real data when ready
     }, [query])
 
     const articles = articlesData?.map(article => <Card article={article} setSelectedArticle={setSelectedArticle} key={nanoid()} />)
