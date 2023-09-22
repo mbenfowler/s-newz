@@ -9,7 +9,10 @@ export const Nav = ({ setQuery }) => {
 
     return (
         <nav>
-            <h1>S-NEWZ</h1>
+            <div id='leftSideNav'>
+                <h1>S-NEWZ</h1>
+                <img id='sleepyImg' src={`${process.env.PUBLIC_URL}/images/sleepy.png`} />
+            </div>
             <input className='search' onKeyDown={handleQuery} placeholder='Search...'></input>
         </nav>
     )
