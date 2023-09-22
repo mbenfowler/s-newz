@@ -41,7 +41,6 @@
 }
 
 .button {
-    align-self: center;
     height: 30px;
     width: 200px;
     background-color: blue;
@@ -50,11 +49,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 5%;
     box-shadow: 0px 5px 6px 0px #777068;
     &:hover {
         cursor: pointer;
         transform: scale(1.05);
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .article-list-details a {
+        align-self: center;
+        margin: 5% 0 2% 0;
     }
 }
 
@@ -74,5 +79,6 @@
     .button {
         align-self: inherit;
         height: 40px;
+        margin: 5%;
     }
 }
